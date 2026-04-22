@@ -1,5 +1,5 @@
 # =====================================================
-# PROCESAMIENTO DE LENGUAJE NATURAL - INFORME DE CORPUS
+# PROCESAMIENTO DE LENGUAJE NATURAL - INFORME SOBRE CORPUS
 # =====================================================
 from sklearn.feature_extraction.text import TfidfVectorizer
 import nltk
@@ -62,9 +62,9 @@ try:
             
 except Exception as e:
     print(f"Error al procesar el corpus: {e}")
-#################################
-#    PROCESAMIENTO DEL CORPUS   #
-#################################
+###############################
+#    ANALIZACION DEL CORPUS   #
+###############################
 corpus_procesado = []
 for oracion in lineas_texto:
     # Aplicamos: Tokenizar -> Limpiar -> Lematizar
@@ -76,7 +76,7 @@ for oracion in lineas_texto:
 ###análisis TF-IDF###
 corpus_final_texto = [' '.join(lista) for lista in corpus_procesado]
 
-####CÁLCULO DE MATRIZ TF-IDF ####
+###CÁLCULO DE MATRIZ TF-IDF ####
 
 vectorizer = TfidfVectorizer()
 X = vectorizer.fit_transform(corpus_final_texto)
@@ -88,7 +88,7 @@ print("\n--- VOCABULARIO ---")
 print(vectorizer.get_feature_names_out())
 
 ###########################################
-#GENERACIÓN DEL INFORME DE CONCLUSIONES ---
+#GENERACIÓN DEL INFORME DE CONCLUSIONES ###
 ###########################################
 
 
@@ -112,9 +112,9 @@ for i, oracion_lemas in enumerate(corpus_procesado):
     if repeticiones:
         print(f"   Oración {i+1}: {repeticiones}")
 
-############################################
-#GRAFICO DE DISTRIBUCIONN DE FRECUENCIA
-############################################
+##########################################
+#GRAFICO DE DISTRIBUCIONN DE FRECUENCIA###
+##########################################
 
 # Las 6 palabras más frecuentes
 palabras_graf, frecuencias_graf = zip(*conteo_global.most_common(6))

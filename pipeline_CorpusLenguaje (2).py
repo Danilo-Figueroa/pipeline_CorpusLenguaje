@@ -1,6 +1,3 @@
-# =====================================================
-# PROCESAMIENTO DE LENGUAJE NATURAL - INFORME SOBRE CORPUS
-# =====================================================
 from sklearn.feature_extraction.text import TfidfVectorizer
 import nltk
 import matplotlib.pyplot as plt
@@ -12,9 +9,7 @@ import os
 import string
 import re  # Funciona para extraer solo el texto entre comillas
 from collections import Counter 
-#============
-##FUNCIONES##
-#============
+
 def quitarStopwords_eng(texto):
     #Elimina las palabras vacías y signos de puntuación
     ingles = stopwords.words("english")
@@ -62,9 +57,7 @@ try:
             
 except Exception as e:
     print(f"Error al procesar el corpus: {e}")
-###############################
-#    ANALIZACION DEL CORPUS   #
-###############################
+
 corpus_procesado = []
 for oracion in lineas_texto:
     # Aplicamos: Tokenizar -> Limpiar -> Lematizar
